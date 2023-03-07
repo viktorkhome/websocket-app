@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <section class="main">
+        <table class="main-table">
+            <tr>
+                <th>
+                    <div class="main-flex">
+                        <h3>Prices</h3>
+                        <span *ngIf="tableData.length > 0">Count of items: {{tableData.length}}</span>
+                    </div>
+                </th>
+            </tr>
+            <tr *ngFor="let tableItem of tableData ">
+                <td>
+                    {{tableItem.price}}
+                </td>
+            </tr>
+        </table>
+    </section>
+    <br>
+    <button (click)="sendSubscribeEvent()" class="main-button" *ngIf="!subscribeEventSent">Subscribe</button>
+    <button (click)="sendUnsubscribeEvent()" class="main-button dark-green" *ngIf="subscribeEventSent">Unsubscribe</button>
+    <button (click)="clearTable()" class="main-button red" *ngIf="!subscribeEventSent && tableData.length > 0">Clear</button>
+</div>
